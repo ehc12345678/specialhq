@@ -1,0 +1,22 @@
+<h1>Specify Special Need</h1>
+<%= form_for(@dependent, :url => { :action => "how_use" }) do |f| %>
+
+<table>
+  <tr>
+    <td class="resourcePane">
+      <%= render :partial => "resource_pane", :locals => {:dependent => @dependent } %>
+    </td>
+    <td class="contentPane">
+      <p>Which special need does <%= @dependent.name %> have?</p>
+      <span class="radioButtons">
+        <p><%= f.radio_button "need", "autism" %> Autism</p>
+        <p><%= f.radio_button "need", "Aspergers" %> Aspergers</p>
+        <p><%= f.radio_button "need", "down syndrome" %> Down Syndrome</p>
+        <p><%= f.radio_button "need", "other" %> Other</p>
+      </span>
+    </td>
+  </tr>
+</table>
+<p><%= button_to "Next" %></p>
+<p><!-- end .content --></p>
+<% end %>

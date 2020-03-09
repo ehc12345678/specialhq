@@ -1,0 +1,30 @@
+<%= form_for(@gig) do |f| %>
+  <% if @gig.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gig.errors.count, "error") %> prohibited this gig from being saved:</h2>
+
+      <ul>
+      <% @gig.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <table class="formTable">
+      <tr>
+        <td class="formLabel"><%= f.label :name %></td>
+        <td class="formField"><%= f.text_field :name, :size => 75, :placeholder => "Enter Name Here", :autofocus => 'true' %></td>
+      </tr>
+      <tr>
+        <td class="formLabel"><%= f.label :description %></td>
+        <td class="formField"><%= f.text_area :description, :size => 120, :placeholder => "Description" %></td>
+      </tr>
+    </table>
+    <!-- TODO: We should be using the principle instead of grabbing a parameter here -->
+    <%= f.hidden_field :parent_id, :value => params[:parent_id] %>
+
+    <div class="actions">
+        <%= f.submit %>
+    </div>
+<% end %>

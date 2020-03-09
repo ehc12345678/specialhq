@@ -1,0 +1,27 @@
+<!--<img src="" alt="Insert Logo Here" name="Insert_logo" width="180" height="90" class="logo" />-->
+<div class="linkHome">
+  <% if logged_in? -%>
+      <table>
+        <tr>
+          <td>
+              <%= link_to "New Post", {:controller => 'posts', :action => "new"} %>
+          </td>
+          <td width="10" rowspan="2">
+            &nbsp;
+          </td>
+          <td>
+            <%= link_to "Edit Profile", {:controller => 'users', :action => "edit" } %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= link_to "Home", {:controller => 'home', :action => "home"} %>
+          </td>
+          <td>
+            <%= link_to "Admin", {:controller => 'admin', :action => "index"} %>
+          </td>
+        </tr>
+      </table>
+  <% end %>
+</div>
+<%= render :partial => "users/user_bar" %>

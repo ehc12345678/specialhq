@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @dependent.name %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%= @dependent.gender %>
+</p>
+
+<p>
+  <b>Birth month:</b>
+  <%= @dependent.birth_month %>
+</p>
+
+<p>
+  <b>Birth day:</b>
+  <%= @dependent.birth_day %>
+</p>
+
+<p>
+  <b>Age:</b>
+  <%= @dependent.age %>
+</p>
+
+<p>
+  <b>Need:</b>
+  <%= @dependent.need %>
+</p>
+
+<p>
+  <b>Diagnosed:</b>
+  <%= @dependent.diagnosed %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @dependent.zip %>
+</p>
+
+<p>
+  <b>Parent:</b>
+  <%= @dependent.parent_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_dependent_path(@dependent) %> |
+<%= link_to 'Back', dependents_path %>

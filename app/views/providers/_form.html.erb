@@ -1,0 +1,43 @@
+<%= form_for(@provider) do |f| %>
+  <% if @provider.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@provider.errors.count, "error") %> prohibited this provider from being saved:</h2>
+
+      <ul>
+      <% @provider.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <table class="formTable">
+      <tr>
+        <td class="formLabel"><%= f.label :name %></td>
+        <td class="formField"><%= f.text_field :name, :size => 75, :placeholder => "Enter Name Here", :autofocus => 'true' %></td>
+      </tr>
+      <tr>
+        <td class="formLabel"><%= f.label :gender %></td>
+        <td class="formField">
+          <div class="radioButtons">
+            <div><%= f.radio_button :gender, "m" %>Male</div>
+            <div><%= f.radio_button :gender, "f" %>Female</div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="formLabel"><%= f.label :zip %></td>
+        <td class="formField"><%= f.text_field :zip, :size => 12 %></td>
+      </tr>
+      <tr>
+        <td class="formLabel"><%= f.label :occupation %></td>
+        <td class="formField">
+          <%= f.select :occupation, %w[nanny therapist doctor lawyer], {:include_blank => true} %>
+        </td>
+      </tr>
+    </table>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

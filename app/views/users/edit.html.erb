@@ -1,0 +1,39 @@
+<h1>Edit user</h1>
+
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<%= form_for @user do |f| %>
+    <table class="formTable">
+      <tr>
+        <td class="formLabel"><%= f.label :login %></td>
+        <td class="formField"><%= @user.login %></td>
+      </tr>
+      <tr>
+        <td class="formLabel"><%= f.label :email %></td>
+        <td class="formField"><%= f.text_field :email %></td>
+      </tr>
+    </table>
+
+    <!-- TODO only for admin -->
+    <h3>Roles:</h3>
+    <ul>
+    <% for role in Role.find(:all) %>
+        <li><%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %> <%= role.name %></li>
+    <% end %>
+    </ul>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
+

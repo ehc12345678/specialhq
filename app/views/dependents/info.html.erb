@@ -1,0 +1,25 @@
+<h1>More Information</h1>
+<%= form_for(@dependent, :url => { :action => "register" }) do |f| %>
+
+<table>
+  <tr>
+    <td class="resourcePane">
+      <%= render :partial => "resource_pane", :locals => {:dependent => @parent.dependents.last } %>
+    </td>
+    <td class="contentPane">
+      <p>Where do you live?</p>
+      <p class="textField">
+        Zip Code: <%= f.text_field :zip %>
+      </p>
+      <p>When was <%= @dependent.name %> diagnosed with autism?</p>
+      <p>
+        <p class="radioButtons"><%= f.radio_button "diagnosed", "recently" %>Recently</p>
+        <p class="radioButtons"><%= f.radio_button "diagnosed", "year" %>Within a year</p>
+        <p class="radioButtons"><%= f.radio_button "diagnosed", "several" %>Several years ago</p>
+      </p>
+    </td>
+  </tr>
+</table>
+<p><%= button_to "Next" %></p>
+<p><!-- end .content --></p>
+<% end %>

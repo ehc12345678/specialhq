@@ -1,0 +1,37 @@
+<h1>Your Special Person</h1>
+<p>Tell us about your special person</p>
+<%= form_for(@dependent, :url => { :action => "needs" }) do |f| %>
+
+<input type="hidden" name="next" value="needs"/>
+<table>
+  <tr>
+    <td class="formLabel"><%= f.label :name%></td>
+    <td class="formField"><%= f.text_field :name, :size => 75, :placeholder => "Enter Name Here", :autofocus => 'true'%></td>
+  </tr>
+  <tr>
+    <td class="formLabel">Birthday:</td>
+    <td class="formField">
+        <% birth_date = @dependent.birth_month ? DateTime.new(Date.today.year, @dependent.birth_month, @dependent.birth_day) : Date.today %>
+        <%= select_month(birth_date) %>
+        <%= select_day(birth_date) %>
+    </td>
+  </tr>
+  <tr>
+    <td class="formLabel">Age:</td>
+    <td class="formField">
+        <%= f.text_field :age, :size => 5 %>
+    </td>
+  </tr>
+  <tr>
+    <td class="formLabel">Gender:</td>
+    <td class="formField">
+      <div class="radioButtons">
+          <p><%= f.radio_button :gender, true %>Male</p>
+          <p><%= f.radio_button :gender, false %>Female</p>
+      </div>
+    </td>
+  </tr>
+</table>
+<p><!-- end .content --></p>
+<p><%= button_to "Next" %></p>
+<% end %>

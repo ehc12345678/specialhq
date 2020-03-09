@@ -1,0 +1,6 @@
+<div class="resourcePaneName">Resources</div>
+<div class="resourcePaneResources">
+  <% list.each { |item| %>
+      <div><%= render :partial => "rules/summary/" + item.partial, :locals => { :item => item } %></div>
+  <% } %>
+</div>

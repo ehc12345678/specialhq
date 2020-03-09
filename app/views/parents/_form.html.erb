@@ -1,0 +1,86 @@
+<%= form_for(@parent) do |f| %>
+    <% if @parent.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@parent.errors.count, "error") %> prohibited this parent from being saved:</h2>
+
+          <ul>
+            <% @parent.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <table class="formTable">
+      <tr>
+        <td class="formLabel"><%= f.label :name %></td>
+        <td class="formField"><%= f.text_field :name, :size => 75, :placeholder => "Enter Name Here", :autofocus => 'true' %></td>
+      </tr>
+      <tr>
+        <td class="formLabel"><%= f.label :gender %></td>
+        <td class="formField">
+          <div class="radioButtons">
+            <div><%= f.radio_button :gender, "m" %>Male</div>
+            <div><%= f.radio_button :gender, "f" %>Female</div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="formLabel"><%= f.label :zip %></td>
+        <td class="formField"><%= f.text_field :zip, :size => 12 %></td>
+      </tr>
+      <tr>
+        <td class="formLabel"><%= f.label :how_use %></td>
+        <td class="formField">
+            <div class="radioButtons">
+                <div><%= f.radio_button :how_use, "provider" %>Help finding providers</div>
+                <div><%= f.radio_button :how_use, "support"%>Support</div>
+                <div><%= f.radio_button :how_use, "info" %>Information</div>
+                <div><%= f.radio_button :how_use, "other" %>Other</div>
+            </div>
+        </td>
+      </tr>
+    </table>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+    <h2>Dependents</h2>
+    <%= link_to 'New Dependent', new_dependent_path(:parent_id => @parent.id) %>
+    <table class="formTable">
+    <% @parent.dependents.each do |dependent| %>
+      <tr>
+        <td><%= dependent.name %></td>
+        <td><%= dependent.gender %></td>
+        <td><%= dependent.birth_month %></td>
+        <td><%= dependent.birth_day %></td>
+        <td><%= dependent.age %></td>
+        <td><%= dependent.need %></td>
+        <td><%= dependent.diagnosed %></td>
+        <td><%= dependent.zip %></td>
+        <td><%= dependent.parent_id %></td>
+        <td><%= link_to 'Show', dependent %></td>
+        <td><%= link_to 'Edit', edit_dependent_path(dependent) %></td>
+        <td><%= link_to 'Remove', dependent, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+    </table>
+
+    <h2>Gigs</h2>
+    <%= link_to 'New Gig', new_gig_path(:parent_id => @parent.id) %>
+
+    <table class="formTable">
+    <% @parent.gigs.each do |gig| %>
+      <tr>
+        <td><%= gig.name %></td>
+        <td><%= gig.description %></td>
+        <td><%= link_to 'Show', gig %></td>
+        <td><%= link_to 'Edit', edit_gig_path(gig) %></td>
+        <td><%= link_to 'Remove', gig, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+    </table>
+<% end %>
+
+

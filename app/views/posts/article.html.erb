@@ -1,0 +1,9 @@
+<div class="article">
+  <% if post %>
+  <span class="articleTitle"><%=post.title%></span>
+  <span class="articleAuthor"> by <%=post.name%></span>
+  <div class="articleContent">
+    <%= raw(post.content) %>
+  </div>
+  <% end %>
+</div>

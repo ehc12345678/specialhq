@@ -1,0 +1,73 @@
+<%= form_for(@dependent) do |f| %>
+    <% if @dependent.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@dependent.errors.count, "error") %> prohibited this dependent from being saved:</h2>
+
+          <ul>
+            <% @dependent.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <table class="formTable">
+      <tr>
+        <td class="formLabel"><%= f.label :name %></td>
+        <td class="formField"><%= f.text_field :name, :size => 75, :placeholder => "Enter Name Here", :autofocus => 'true' %></td>
+      </tr>
+      <tr>
+        <td class="formLabel">Birthday</td>
+        <td class="formField">
+          <% birth_date = @dependent.birth_month ? DateTime.new(Date.today.year, @dependent.birth_month, @dependent.birth_day) : Date.today %>
+          <%= select_month(birth_date) %>
+          <%= select_day(birth_date) %>
+        </td>
+      </tr>
+      <tr>
+        <td class="formLabel"><%= f.label :age %></td>
+        <td class="formField">
+          <%= f.text_field :age, :size => 5 %>
+        </td>
+      </tr>
+      <tr>
+        <td class="formLabel"><%= f.label :gender %></td>
+        <td class="formField">
+          <div class="radioButtons">
+            <div><%= f.radio_button :gender, "m" %>Male</div>
+            <div><%= f.radio_button :gender, "f" %>Female</div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="formLabel"><%= f.label :need %></td>
+        <td class="formField">
+          <div class="radioButtons">
+            <div><%= f.radio_button :need, "autism" %> Autism</div>
+            <div><%= f.radio_button :need, "Aspergers" %> Aspergers</div>
+            <div><%= f.radio_button :need, "down syndrome" %> Down Syndrome</div>
+            <div><%= f.radio_button :need, "other" %> Other</div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="formLabel"><%= f.label :diagnosed %></td>
+        <td class="formField">
+          <div class="radioButtons">
+            <div><%= f.radio_button :diagnosed, "recently" %>Recently</div>
+            <div><%= f.radio_button :diagnosed, "year" %>Within a year</div>
+            <div><%= f.radio_button :diagnosed, "several" %>Several years ago</div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="formLabel"><%= f.label :zip %></td>
+        <td class="formField"><%= f.text_field :zip %></td>
+      </tr>
+    </table>
+    <%= f.hidden_field :parent_id, :value => params[:parent_id] %>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

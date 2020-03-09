@@ -1,0 +1,28 @@
+<table class="homeContent">
+  <tr>
+    <td class="headerSection" colspan="2">Header</td>
+  </tr>
+  <tr>
+    <td class="resourcePane">
+        <%= render :file => "rules/summary/list", :locals => { :list => @short_list } %>
+    </td>
+    <td class="mainSection">
+      <table class="articleSection">
+        <tr>
+          <td class="mainArticleSection">
+            <%= render :file => "posts/article", :locals => { :post => @main_article } %>
+          </td>
+        </tr>
+        <tr>
+          <td class="otherArticleSection">Other Article</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+     <td colspan="2" class="rssSection">RSS Section</td>
+  </tr>
+  <tr>
+     <td colspan="2" class="footerSection">Products</td>
+  </tr>
+</table>

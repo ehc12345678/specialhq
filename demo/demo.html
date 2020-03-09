@@ -1,0 +1,199 @@
+<html>
+<head>
+<script src="javascripts/prototype.js" type="text/javascript"></script>
+<script src="javascripts/scriptaculous.js" type="text/javascript"></script>
+<link href="stylesheets/style.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+<div class="container">
+  <div class="header"><a href="#"><img src="" alt="Insert Logo Here" name="Insert_logo" width="180" height="90" id="Insert_logo" class="logo" /></a>
+    <!-- end .header -->
+  </div>
+
+<div class="contentPane">
+    <div id="welcome" style="display: none">
+        <h1>Welcome</h1>
+
+        <p>
+            Welcome to SpecialHQ, your special needs headquarters. We have put this website together with the goal of
+            improving the lives of
+            special need parents and guardians, child caregivers, and providers. We recognize that caring for someone
+            with special needs can be
+            difficult sometimes, and that some of that care requires expertise that must come from a professional. We
+            also know that a parent of
+            a recently diagnosed special needs child may be asking themselves: &quot;now what?&quot;, &quot;what do I do
+            from here?&quot; and
+            &quot;who can help me?&quot;. SpecialHQ is here to provide answers
+        </p>
+
+        <div id="bigButtons" class="bigButtons">
+            <button id='caregiver' name="Caregiver" onclick="choosePerson(this)">Caregiver</button>
+            &nbsp;or&nbsp;
+            <button id='provider' name="Provider" onclick="choosePerson(this)">Provider</button>
+        </div>
+    </div>
+    <div id="caregiverdiv" style="display: none">
+        <h1>Special Person</h1>
+
+        <p>
+            As a caregiver of a special needs person, we know you need help and support. 
+        </p>
+        <p><img src="images/icon_expand.gif" alt="Expand" onclick="replaceDiv('caregiverdiv', 'welcome')"/> Welcome <img
+                src="images/parent.gif" alt="">Care Giver</p>
+
+        <div class="formFields">
+            <div class="explain">Tell us about your special person</div>
+            <div id="specialForm">
+            <table>
+                <tr>
+                    <td class="formLabel"><label for="dependent_name">Name:</label></td>
+                    <td class="formField"><input id="dependent_name" name="dependent[name]" size="75" type="text"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="formLabel">Birthday:</td>
+                    <td class="formField">
+                        <select id="date_month" name="date[month]">
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option selected="selected" value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+
+                        <select id="date_day" name="date[day]">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option selected="selected" value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                        </select>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="formLabel">Age:</td>
+                    <td class="formField">
+                        <input id="dependent_age" name="dependent[age]" size="5" type="text"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="formLabel">Gender:</td>
+                    <td class="formField">
+                        <div class="radioButtons">
+                            <input id="dependent_gender_true" name="dependent[gender]" type="radio"
+                                      value="true"/>Male
+                            </br>
+                            <input id="dependent_gender_false" name="dependent[gender]" type="radio"
+                                      value="false"/>Female
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            </div>
+            <p><input class="submitButton" name="commit" type="submit" value="Save" onclick="saveSpecial()"/></p>
+        </div>
+    </div>
+    <div class="content" id="providerdiv" style="display: none">
+      Welcome
+      <span class="providericon">&nbsp</span>
+      Provider
+      TBD
+    </div>
+    <div id="howuse" style="display: none">
+
+        <h1>Looking for</h1>
+
+        <p><img src="images/icon_expand.gif" alt="Expand" onclick="replaceDiv('howuse', 'welcome')"/> Welcome <img
+                        src="images/parent.gif" alt="">Care Giver</p>
+        <p><img src="images/icon_expand.gif" alt="Expand" onclick="expandSpecial()"/> Special: Ethan, age 8, July 7th, autistic</p>
+        <div id="specialFormSub" class="content nodisplay">
+            <div id="specialFormDest"></div>
+            <p><input class="submitButton" name="commit" type="submit" value="Save" onclick="saveSpecialSub()"/></p>
+        </div>
+        <p>You are looking for the following</p>
+
+        <div class="formFields">
+          <span class="radioButtons">
+            <p><input id="providerHelp" name="provider" type="checkbox" value="1"/>Help finding providers</p>
+            <p><input id="support" name="support" type="checkbox" value="1"/>Support</p>
+            <p><input id="info" name="info" type="checkbox" value="1"/>Information</p>
+            <p><input id="other" name="other" type="checkbox" value="1"/>Other</p>
+          </span>
+        </div>
+        <p><input class="submitButton" name="commit" type="submit" value="Save"/></p>
+    </div>
+</div>
+
+<div class="footer">
+    <p>Footer</p>
+</div>
+</div>
+
+</body>
+<script>
+  Effect.Appear('welcome');
+
+  function choosePerson(button) {
+    replaceDiv('welcome', button.id + 'div');
+//    if (button.name == "Care Giver") {
+//       Effect.BlindUp('provider');
+//    }
+//    Effect.BlindUp('bigButtons');
+  }
+
+
+  function saveSpecial() {
+    replaceDiv('caregiverdiv', 'howuse');
+  }
+
+  function replaceDiv(oldDiv, newDiv) {
+    Effect.BlindUp(oldDiv);
+    Effect.BlindDown(newDiv);
+  }
+
+  function expandSpecial() {
+      $('specialFormDest').update($('specialForm').innerHTML);
+      Effect.toggle('specialFormSub', 'blind');
+  }
+
+  function saveSpecialSub() {
+      Effect.BlindUp('specialFormSub');
+  }
+  Effect.BlindUp('specialFormSub');
+</script>
+</html>

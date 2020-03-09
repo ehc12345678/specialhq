@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  gender: MyString
+  birth_month: 1
+  birth_day: 1
+  age: 1
+  need: MyString
+  diagnosed: MyString
+  zip: MyString
+  parent_id: 1
+
+two:
+  name: MyString
+  gender: MyString
+  birth_month: 1
+  birth_day: 1
+  age: 1
+  need: MyString
+  diagnosed: MyString
+  zip: MyString
+  parent_id: 1

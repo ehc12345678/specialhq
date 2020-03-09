@@ -1,0 +1,24 @@
+<h1>How you would use this site</h1>
+<%= @dependent.nil? %>
+<% if false then %>
+    <%= form_for(@dependent, :url => { :action => "needs" }) do |f| %>
+    <table>
+      <tr>
+        <td class="resourcePane">
+          <%= render :partial => "resource_pane", :locals => {:dependent => @parent.dependents.last } %>
+        </td>
+        <td class="contentPane">
+          <p>You are looking for the following</p>
+          <span class="radioButtons">
+            <p><%= f.check_box :how_use_provider%>Help finding providers</p>
+            <p><%= f.check_box :how_use_support%>Support</p>
+            <p><%= f.check_box :how_use_info%>Information</p>
+            <p><%= f.check_box :how_use_other%>Other</p>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p><%= button_to "Next" %></p>
+    <% end %>
+<% end %>
+

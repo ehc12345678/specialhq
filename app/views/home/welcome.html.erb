@@ -1,0 +1,28 @@
+<h1>Welcome</h1>
+<div class="content">
+  Welcome to SpecialHQ, your special needs headquarters. We have put this website together with the
+  goal of improving the lives of special need parents and guardians, child caregivers, and providers.
+  We recognize that caring for someone with special needs can be difficult sometimes, and we are here
+  to help you find information and providers.  We can help answer questions you may have and even
+  give you insight on things you had not thought of, such as:
+</div>
+<div class="content">
+  <ul>
+    <li>support provided by your State and Local governments</li>
+    <li>things you should know about early intervention (EI) and special education</li>
+    <li>specialists that you will want to book now</li>
+  </ul>
+</div>
+<div class="content">
+  If you answer a few simple questions, we can start helping you.  Let's start with what brings you to
+  this site.
+</div>
+<div class="content buttonContent">
+  You are a
+  <%= link_to "Parent", { :controller => 'users', :action => 'new', :type => 'parents' }, :method => 'get', :class => 'button_to' %>
+  or a
+  <%= link_to "Provider", { :controller => 'providers', :action => 'new', :type => 'providers' }, :method => 'get', :class => 'button_to' %>
+</div>
+<div class="nodisplay" id="parent_start">This is content</div>
+
+

@@ -1,0 +1,39 @@
+<h1>Listing dependents</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Birth month</th>
+    <th>Birth day</th>
+    <th>Age</th>
+    <th>Need</th>
+    <th>Diagnosed</th>
+    <th>Zip</th>
+    <th>Parent</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @dependents.each do |dependent| %>
+  <tr>
+    <td><%= dependent.name %></td>
+    <td><%= dependent.gender %></td>
+    <td><%= dependent.birth_month %></td>
+    <td><%= dependent.birth_day %></td>
+    <td><%= dependent.age %></td>
+    <td><%= dependent.need %></td>
+    <td><%= dependent.diagnosed %></td>
+    <td><%= dependent.zip %></td>
+    <td><%= dependent.parent_id %></td>
+    <td><%= link_to 'Show', dependent %></td>
+    <td><%= link_to 'Edit', edit_dependent_path(dependent) %></td>
+    <td><%= link_to 'Destroy', dependent, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Dependent', new_dependent_path %>
